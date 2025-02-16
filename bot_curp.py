@@ -6,10 +6,13 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
+from selenium.webdriver.firefox.options import Options
 
-def buscar_curp(lista):
-	driver = webdriver.Firefox() ##Open firefox
-	#driver.get("https://www.gob.mx/curp/") ##Curp Page
+def buscar_curp(lista, ocultar=True):
+	options = Options()
+	if ocultar:
+		options.add_argument("-headless") 
+	driver = webdriver.Firefox(options=options) ##Open firefox
 	driver.maximize_window()
 	for curp in lista:
 		driver.get("https://www.gob.mx/curp/")
@@ -40,6 +43,3 @@ def buscar_curp(lista):
 		print(df.head())
 	driver.quit()
 
-#lista=['AARS980525HDFLMR03', 'RALF591027MHGMPL05']
-#buscar_curp(lista)
-#driver.quit()

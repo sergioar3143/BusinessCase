@@ -40,5 +40,5 @@ def find_curp(img):
 			return i
 
 curp=find_curp('ine1.jpeg')
-buscar_curp([curp])
+buscar_curp([curp], ocultar=False)
 
