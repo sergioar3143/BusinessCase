@@ -7,11 +7,10 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 
-driver = webdriver.Firefox() ##Open firefox
-#driver.get("https://www.gob.mx/curp/") ##Curp Page
-driver.maximize_window()
-
 def buscar_curp(lista):
+	driver = webdriver.Firefox() ##Open firefox
+	#driver.get("https://www.gob.mx/curp/") ##Curp Page
+	driver.maximize_window()
 	for curp in lista:
 		driver.get("https://www.gob.mx/curp/")
 		text_box = WebDriverWait(driver, 10).until(EC.visibility_of_all_elements_located((By.XPATH, '//*[@id="curpinput"]')))
@@ -39,7 +38,8 @@ def buscar_curp(lista):
 		df['nacionalidad']=[df_list[6]]
 		df['entidad_nacimiento']=[df_list[7]]
 		print(df.head())
+	driver.quit()
 
-lista=['AARS980525HDFLMR03', 'RALF591027MHGMPL05']
-buscar_curp(lista)
-driver.quit()
+#lista=['AARS980525HDFLMR03', 'RALF591027MHGMPL05']
+#buscar_curp(lista)
+#driver.quit()
