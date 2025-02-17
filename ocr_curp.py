@@ -1,4 +1,4 @@
-from bot_curp import buscar_curp
+from bot_curp import search_curp
 import easyocr
 import cv2
 import pandas as pd
@@ -13,8 +13,8 @@ def replace_curp(cadena):
 	cadena4=cadena[16:].replace('O','0').replace('S','5')
 	return cadena1+cadena2+cadena3+cadena4
 
-def find_curp(img):
-	img_cv = cv2.imread(img)
+def find_curp(img_cv):
+	#img_cv = cv2.imread(img)
 	print('Pytesseact')
 
 	# By default OpenCV stores images in BGR format and since pytesseract assumes RGB format,
@@ -39,6 +39,6 @@ def find_curp(img):
 		if not(m) is None:
 			return i
 
-curp=find_curp('ine1.jpeg')
-buscar_curp([curp], ocultar=False)
+#curp=find_curp('ine1.jpeg')
+#search_curp([curp], ocultar=False)
 

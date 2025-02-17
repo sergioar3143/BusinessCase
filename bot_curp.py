@@ -8,7 +8,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.firefox.options import Options
 
-def buscar_curp(lista, ocultar=True):
+def search_curp(lista, ocultar=True):
 	options = Options()
 	if ocultar:
 		options.add_argument("-headless") 
@@ -40,6 +40,7 @@ def buscar_curp(lista, ocultar=True):
 		df['fecha_nacimiento']=[df_list[5]]
 		df['nacionalidad']=[df_list[6]]
 		df['entidad_nacimiento']=[df_list[7]]
-		print(df.head())
+		#print(df.head())
 	driver.quit()
+	return df
 
